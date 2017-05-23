@@ -4,4 +4,5 @@ package beans;//
 //
 public class Attributes
 {
+
 }
