@@ -6,7 +6,7 @@ import java.util.List;
 //Created by DaMasterHam on 23-05-2017.
 //
 @Entity
-public class PrivateInfo
+public class PersonalInfo
 {
 
     private String realName;

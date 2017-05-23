@@ -15,7 +15,7 @@ public class Runner
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private PrivateInfo privateInfo;
+    private PersonalInfo personalInfo;
     private Attributes attributes;
     private Skills skills;
 
@@ -23,17 +23,17 @@ public class Runner
     {
     }
 
-    public Runner(PrivateInfo privateInfo, Attributes attributes, Skills skills)
+    public Runner(PersonalInfo personalInfo, Attributes attributes, Skills skills)
     {
-        this.privateInfo = privateInfo;
+        this.personalInfo = personalInfo;
         this.attributes = attributes;
         this.skills = skills;
     }
 
-    public Runner(long id, PrivateInfo privateInfo, Attributes attributes, Skills skills)
+    public Runner(long id, PersonalInfo personalInfo, Attributes attributes, Skills skills)
     {
         this.id = id;
-        this.privateInfo = privateInfo;
+        this.personalInfo = personalInfo;
         this.attributes = attributes;
         this.skills = skills;
     }
@@ -50,14 +50,14 @@ public class Runner
         this.id = id;
     }
 
-    public PrivateInfo getPrivateInfo()
+    public PersonalInfo getPersonalInfo()
     {
-        return privateInfo;
+        return personalInfo;
     }
 
-    public void setPrivateInfo(PrivateInfo privateInfo)
+    public void setPersonalInfo(PersonalInfo personalInfo)
     {
-        this.privateInfo = privateInfo;
+        this.personalInfo = personalInfo;
     }
 
     public Attributes getAttributes()
@@ -90,7 +90,7 @@ public class Runner
 
         //if (id != runner.id) return false;
         return id == runner.id;
-//        if (!privateInfo.equals(runner.privateInfo)) return false;
+//        if (!personalInfo.equals(runner.personalInfo)) return false;
 //        if (!attributes.equals(runner.attributes)) return false;
 //        return skills.equals(runner.skills);
     }
