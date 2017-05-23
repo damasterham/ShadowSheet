@@ -1,23 +1,32 @@
-package beans;//
+package api.beans;//
 
 //Created by DaMasterHam on 23-05-2017.
 //
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.Columns;
+
+import javax.persistence.*;
 
 @Entity
 public class Runner
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "RUNNER_ID")
     private long id;
 
+    @OneToOne
+    @JoinColumn(
+            name = "RUNNER_ID",
+            referencedColumnName = "RUNNER_ID"
+    )
     private PersonalInfo personalInfo;
-    private Attributes attributes;
-    private Skills skills;
+//    @OneToOne
+//    private Attributes attributes;
+//    @OneToOne
+//    private Skills skills;
+
+
 
     public Runner()
     {
@@ -26,16 +35,16 @@ public class Runner
     public Runner(PersonalInfo personalInfo, Attributes attributes, Skills skills)
     {
         this.personalInfo = personalInfo;
-        this.attributes = attributes;
-        this.skills = skills;
+//        this.attributes = attributes;
+//        this.skills = skills;
     }
 
     public Runner(long id, PersonalInfo personalInfo, Attributes attributes, Skills skills)
     {
         this.id = id;
         this.personalInfo = personalInfo;
-        this.attributes = attributes;
-        this.skills = skills;
+//        this.attributes = attributes;
+//        this.skills = skills;
     }
 
 
@@ -59,26 +68,26 @@ public class Runner
     {
         this.personalInfo = personalInfo;
     }
-
-    public Attributes getAttributes()
-    {
-        return attributes;
-    }
-
-    public void setAttributes(Attributes attributes)
-    {
-        this.attributes = attributes;
-    }
-
-    public Skills getSkills()
-    {
-        return skills;
-    }
-
-    public void setSkills(Skills skills)
-    {
-        this.skills = skills;
-    }
+//
+//    public Attributes getAttributes()
+//    {
+//        return attributes;
+//    }
+//
+//    public void setAttributes(Attributes attributes)
+//    {
+//        this.attributes = attributes;
+//    }
+//
+//    public Skills getSkills()
+//    {
+//        return skills;
+//    }
+//
+//    public void setSkills(Skills skills)
+//    {
+//        this.skills = skills;
+//    }
 
     @Override
     public boolean equals(Object o)

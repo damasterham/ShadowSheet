@@ -1,6 +1,8 @@
-package beans;//
+package api.beans;//
 
-import javax.persistence.Entity;
+import api.enums.Metatype;
+
+import javax.persistence.*;
 import java.util.List;
 
 //Created by DaMasterHam on 23-05-2017.
@@ -8,9 +10,12 @@ import java.util.List;
 @Entity
 public class PersonalInfo
 {
+    @Id
+    @Column(name = "RUNNER_ID")
+    private long id;
 
     private String realName;
-    private List<Alias> aliases;
+    //private List<Alias> aliases;
     private Metatype metatype;
     private int age;
     private String ethnicity;
@@ -28,25 +33,25 @@ public class PersonalInfo
         this.realName = realName;
     }
 
-    public List<Alias> getAliases()
-    {
-        return this.aliases;
-    }
-
-    /*public void setAliases(List<String> aliases)
-    {
-        this.aliases = aliases;
-    }*/
-
-    public void addAlias(String newAlias)
-    {
-        this.aliases.add(new Alias(newAlias));
-    }
-
-    public void removeAlias(byte index)
-    {
-        this.aliases.remove(index);
-    }
+//    public List<Alias> getAliases()
+//    {
+//        return this.aliases;
+//    }
+//
+//    /*public void setAliases(List<String> aliases)
+//    {
+//        this.aliases = aliases;
+//    }*/
+//
+//    public void addAlias(String newAlias)
+//    {
+//        this.aliases.add(new Alias(newAlias));
+//    }
+//
+//    public void removeAlias(byte index)
+//    {
+//        this.aliases.remove(index);
+//    }
 
     public Metatype getMetatype()
     {
