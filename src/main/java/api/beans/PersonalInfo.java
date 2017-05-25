@@ -1,6 +1,7 @@
 package api.beans;//
 
 import api.enums.Metatype;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,18 +11,74 @@ import java.util.List;
 @Entity
 public class PersonalInfo
 {
+    public static final String FIELD_REF = "personalInfo";
+    public static final String ID_REF = "personal_info_id";
+
     @Id
-    @Column(name = "RUNNER_ID")
+    @GeneratedValue
+    @Column(name = "personal_info_id")
     private long id;
 
+    @OneToOne(mappedBy = FIELD_REF)
+    private Runner runner;
+
     private String realName;
-    //private List<Alias> aliases;
+    @OneToMany( mappedBy = FIELD_REF)
+    private List<Alias> aliases;
     private Metatype metatype;
     private int age;
     private String ethnicity;
     private String sex;
     private String description;
     private String background;
+
+    public PersonalInfo()
+    {
+    }
+
+    public PersonalInfo(String realName, Metatype metatype, int age, String ethnicity, String sex, String description, String background)
+    {
+        this.realName = realName;
+        this.metatype = metatype;
+        this.age = age;
+        this.ethnicity = ethnicity;
+        this.sex = sex;
+        this.description = description;
+        this.background = background;
+    }
+
+    public PersonalInfo(long id, Runner runner, String realName, Metatype metatype, int age, String ethnicity, String sex, String description, String background)
+    {
+        this.id = id;
+        this.runner = runner;
+        this.realName = realName;
+        this.metatype = metatype;
+        this.age = age;
+        this.ethnicity = ethnicity;
+        this.sex = sex;
+        this.description = description;
+        this.background = background;
+    }
+
+    public long getId()
+    {
+        return id;
+    }
+
+    public void setId(long id)
+    {
+        this.id = id;
+    }
+
+    public Runner getRunner()
+    {
+        return runner;
+    }
+
+    public void setRunner(Runner runner)
+    {
+        this.runner = runner;
+    }
 
     public String getRealName()
     {
@@ -33,25 +90,15 @@ public class PersonalInfo
         this.realName = realName;
     }
 
-//    public List<Alias> getAliases()
-//    {
-//        return this.aliases;
-//    }
-//
-//    /*public void setAliases(List<String> aliases)
-//    {
-//        this.aliases = aliases;
-//    }*/
-//
-//    public void addAlias(String newAlias)
-//    {
-//        this.aliases.add(new Alias(newAlias));
-//    }
-//
-//    public void removeAlias(byte index)
-//    {
-//        this.aliases.remove(index);
-//    }
+    public List<Alias> getAliases()
+    {
+        return aliases;
+    }
+
+    public void setAliases(List<Alias> aliases)
+    {
+        this.aliases = aliases;
+    }
 
     public Metatype getMetatype()
     {
@@ -111,5 +158,30 @@ public class PersonalInfo
     public void setBackground(String background)
     {
         this.background = background;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof PersonalInfo)) return false;
+
+        PersonalInfo that = (PersonalInfo) o;
+
+        if (getId() != that.getId()) return false;
+        if (getAge() != that.getAge()) return false;
+        //if (getRunner().getId() != that.getRunner().getId()) return false;
+        if (!getRealName().equals(that.getRealName())) return false;
+        if (getMetatype() != that.getMetatype()) return false;
+        if (!getEthnicity().equals(that.getEthnicity())) return false;
+        if (!getSex().equals(that.getSex())) return false;
+        if (!getDescription().equals(that.getDescription())) return false;
+        return getBackground().equals(that.getBackground());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return (int) (getId() ^ (getId() >>> 32));
     }
 }

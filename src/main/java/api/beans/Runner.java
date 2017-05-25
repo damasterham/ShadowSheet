@@ -4,23 +4,24 @@ package api.beans;//
 //
 
 import org.hibernate.annotations.Columns;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 
 @Entity
 public class Runner
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "RUNNER_ID")
+    @GeneratedValue//(strategy = GenerationType.AUTO)
     private long id;
 
     @OneToOne
-    @JoinColumn(
-            name = "RUNNER_ID",
-            referencedColumnName = "RUNNER_ID"
-    )
+    @JoinColumn(name = PersonalInfo.ID_REF)
+    //rel = "personalInfo"
+    @RestResource(rel = PersonalInfo.FIELD_REF, path = "personalinfo")
     private PersonalInfo personalInfo;
+
 //    @OneToOne
 //    private Attributes attributes;
 //    @OneToOne

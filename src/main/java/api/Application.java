@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 //Created by DaMasterHam on 27-04-2017.
 //
-//@EnableAutoConfiguration
+@EnableAutoConfiguration
 @SpringBootApplication
 public class Application
 {
