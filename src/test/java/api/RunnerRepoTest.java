@@ -3,7 +3,7 @@ package api;//
 import static org.junit.Assert.*;
 
 import api.mock.RunnerRepoMockSimple;
-import api.repo.RunnerRepo;
+import api.repo.RunnerRepository;
 import api.beans.Attributes;
 import api.beans.PersonalInfo;
 import api.beans.Runner;
@@ -19,7 +19,7 @@ import java.util.Arrays;
 //
 public class RunnerRepoTest
 {
-    private RunnerRepo repo;
+    private RunnerRepository repo;
 
     @Before
     public void setUp() throws Exception

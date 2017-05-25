@@ -4,13 +4,13 @@ import api.beans.Attributes;
 import api.beans.PersonalInfo;
 import api.beans.Runner;
 import api.beans.Skills;
-import api.repo.RunnerRepo;
+import api.repo.RunnerRepository;
 
 import java.util.Arrays;
 
 //Created by DaMasterHam on 23-05-2017.
 //
-public class RunnerRepoMockSimple implements RunnerRepo
+public class RunnerRepoMockSimple implements RunnerRepository
 {
     private static Iterable<Runner> runners = Arrays.asList(
             new Runner(0, new PersonalInfo(), new Attributes(), new Skills()),
