@@ -13,6 +13,7 @@ public class PersonalInfo
 {
     public static final String FIELD_REF = "personalInfo";
     public static final String ID_REF = "personal_info_id";
+    public static final String PATH_REF = "personalinfo";
 
     @Id
     @GeneratedValue
@@ -23,7 +24,8 @@ public class PersonalInfo
     private Runner runner;
 
     private String realName;
-    @OneToMany( mappedBy = FIELD_REF)
+    @OneToMany//( mappedBy = FIELD_REF)
+    @JoinColumn(name = Alias.ID_REF)
     private List<Alias> aliases;
     private Metatype metatype;
     private int age;

@@ -19,7 +19,7 @@ public class Runner
     @OneToOne
     @JoinColumn(name = PersonalInfo.ID_REF)
     //rel = "personalInfo"
-    @RestResource(rel = PersonalInfo.FIELD_REF, path = "personalinfo")
+    @RestResource(rel = PersonalInfo.FIELD_REF, path = PersonalInfo.PATH_REF)
     private PersonalInfo personalInfo;
 
 //    @OneToOne
