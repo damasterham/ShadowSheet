@@ -1,0 +1,273 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ShadowSheet",
+		"_postman_id": "0a346172-4f92-41af-a016-de6833a5b646",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Aliases to Personnal Info",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Alias Scrappy",
+					"request": {
+						"url": "localhost:8080/api/aliases",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"value\": \"Scrappy\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Alias Scooby",
+					"request": {
+						"url": "localhost:8080/api/aliases",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"value\": \"Scooby\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Relate PersonalInfo to Alias",
+					"request": {
+						"url": "localhost:8080/api/aliases/1/personalinfo",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/uri-list",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "http://localhost:8080/personalinfo/1"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Aliases thru PersonalInfo",
+					"request": {
+						"url": "localhost:8080/api/personalinfo/1/aliases",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Aliases",
+					"request": {
+						"url": "localhost:8080/api/aliases",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Relate Aliases to PersonalInfo",
+					"request": {
+						"url": "localhost:8080/api/personalinfo/1/aliases",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/uri-list",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "http://localhost:8080/aliases/1\nhttp://localhost:8080/aliases/2"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Runner and Add PersonalInfo with Aliases",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Empty Runner copy",
+					"request": {
+						"url": "localhost:8080/api/runners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
+						},
+						"description": "Creates an empty runner"
+					},
+					"response": []
+				},
+				{
+					"name": "Add PersonalInfo with Aliases thru Runner",
+					"request": {
+						"url": "localhost:8080/api/runner/1/addpersonalinfo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"realName\": \"Bob Bobsen\",\n\t\"aliases\": [\n\t\t{\"value\": \"Stulker\"},\n\t\t{\"value\": \"Vee\"}\n\t],\n\t\"metatype\": 1,\n\t\"age\": 20,\n\t\"ethnicity\": \"Aryan\",\n\t\"sex\": \"often\",\n\t\"description\": \"I'm a fancy man of the masterrace!\",\n\t\"background\": \"City skyline\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Runner, PersonalInfo and associate",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Empty Runner",
+					"request": {
+						"url": "localhost:8080/api/runners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
+						},
+						"description": "Creates an empty runner"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Personal Info",
+					"request": {
+						"url": "localhost:8080/api/personalinfo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"realName\": \"Bob Bobsen\",\n\t\"metatype\": 1,\n\t\"age\": 20,\n\t\"ethnicity\": \"Aryan\",\n\t\"sex\": \"often\",\n\t\"description\": \"I'm a fancy man of the masterrace!\",\n\t\"background\": \"City skyline\"\n}"
+						},
+						"description": "Create a PersonalInfo module for runner with specific id."
+					},
+					"response": []
+				},
+				{
+					"name": "Relate PersonalInfo to Runner",
+					"request": {
+						"url": "http://localhost:8080/api/runners/1/personalinfo",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/uri-list",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "http://localhost:8080/personalinfo/1"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get PersonalInfor thru Runner",
+					"request": {
+						"url": "localhost:8080/api/runners/1/personalinfo",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Root Path copy",
+			"request": {
+				"url": "localhost:8080/api",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Runner with PersonalInfo",
+			"request": {
+				"url": "localhost:8080/api/runners",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"personalinfo\": {}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
