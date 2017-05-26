@@ -18,7 +18,7 @@
     </properties>
 
     <dependencies>
-        <!-- Spring REST dependencies start-->
+        <!-- Spring REST dependencies starts-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
@@ -36,7 +36,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Spring REST dependencies end-->
+        <!-- Spring REST dependencies ends-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
