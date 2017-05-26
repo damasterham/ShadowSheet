@@ -13,7 +13,7 @@ import javax.validation.constraints.Max;
 public class Runner
 {
     @Id
-    @GeneratedValue//(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @OneToOne

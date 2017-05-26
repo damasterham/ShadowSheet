@@ -16,7 +16,7 @@ public class PersonalInfo
     public static final String PATH_REF = "personalinfo";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "personal_info_id")
     private long id;
 
@@ -185,5 +185,20 @@ public class PersonalInfo
     public int hashCode()
     {
         return (int) (getId() ^ (getId() >>> 32));
+    }
+
+    @Override
+    public String toString()
+    {
+        return "PersonalInfo{" +
+                "id=" + id +
+                ", realName='" + realName + '\'' +
+                ", metatype=" + metatype +
+                ", age=" + age +
+                ", ethnicity='" + ethnicity + '\'' +
+                ", sex='" + sex + '\'' +
+                ", description='" + description + '\'' +
+                ", background='" + background + '\'' +
+                '}';
     }
 }
