@@ -1,0 +1,107 @@
+*
+{
+    font-family:"courier";
+}
+
+p
+{
+    margin:0;
+    padding: 5px 25px;
+}
+
+.runner-box
+{
+    position:relative;
+
+    margin-top:50px;
+
+    height:200px;
+    width:90%;
+
+    border:solid darkred 3px;
+    border-bottom:none;
+    border-right:none;
+    border-left:none;
+
+}
+
+.runner-box::after
+{
+    content:"";
+
+    position:absolute;
+    top:33px;
+    right:-85px;
+
+    border-top:3px solid darkred;
+    width:100px;
+    transform: rotate(45deg);
+
+    width:100px;
+    height:100px;
+    display:inline-block;
+
+    backgroun:black;
+}
+
+
+
+.runner-box h1
+{
+    position:relative;
+    top:-45px;
+    left:-2.5px;
+
+    margin:0;
+    padding:5px 80px 10px 15px;
+    height:30px;
+
+    display:inline-block;
+
+    color:#fff;
+    background:
+
+            linear-gradient(225deg, transparent 35px, darkred 0) top right;
+
+}
+
+.runner-box h1::after
+{
+//content:"";
+
+    position:absolute;
+    top:0px;
+
+    margin-left:5px;
+    padding:0px;
+
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 60px solid transparent;
+
+    border-bottom: 40px solid darkred;
+
+    color:#fff;
+}
+
+.runner-box h1::before
+{
+    content:"";
+
+    position:absolute;
+    top:45px;
+    left:0px;
+
+    background:darkred;
+    min-height:200px;
+    max-heigh:500px;
+    width:3px;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff0000+0,000000+100&0.65+0,0+100 */
+    background: -moz-linear-gradient(top,  rgba(150,0,0,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    /* IE6-9 */
+
+
+
+}

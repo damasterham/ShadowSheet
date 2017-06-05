@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="shadowsheet">
+<html lang="en">
 <head>
-    <!--<meta charset="UTF-8">-->
+    <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-    <script src="shadow_sheet.js"></script>
+    <link rel="stylesheet" href="shadowsheet.css">
 </head>
 <body>
-    <div ng-controller="RunnerController">
-        <ul>
-            <li ng-repeat="endpoint in endpoints">
-                <button onclick="createRunner" value="{{endpoint.url}}">{{endpoint.name}}</button>
-            </li>
-        </ul>
 
-        <ul>
-            <li ng-repeat="endpoint in endpoints">
-                <button onclick="createRunner" value="{{endpoint.url}}">{{endpoint.name}}</button>
-            </li>
-        </ul>
+<div class="runner-box">
+</div>
 
-    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="shadowsheet.js"></script>
 </body>
 </html>
