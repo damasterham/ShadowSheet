@@ -65,6 +65,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.3.7.RELEASE" />
           <element id="library" level="project" name="Maven: com.h2database:h2:1.4.193" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.webjars:angularjs:1.6.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">
