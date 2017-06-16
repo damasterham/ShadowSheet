@@ -42,7 +42,7 @@ public class RunnerApiController
         // Associate Aliases to PersonalInfo
         personalInfo.setAliases(aliasesCreated);
 
-        // Create PersonalInfo
+        // Create
         PersonalInfo createdPersonalInfo = personalInfoRepo.save(personalInfo); // Might need to remove Aliases.
 
         // Associate PersonalInfo to Runner
